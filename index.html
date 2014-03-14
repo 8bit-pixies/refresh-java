@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Refresh-java by chappers</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Refresh-java</h1>
+        <h2></h2>
+        <a href="https://github.com/chappers/refresh-java" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <ul>
+<li>  What is Java</li>
+<li>  Hello World
+
+<ul>
+<li>  Looping around loops</li>
+</ul>
+</li>
+<li>  Data Types</li>
+<li>  Functions (or Methods)
+
+<ul>
+<li>  Overloading</li>
+</ul>
+</li>
+<li>  Collections
+
+<ul>
+<li>  Strings</li>
+</ul>
+</li>
+<li>  Arrays
+
+<ul>
+<li>  Maps (Dictionary)</li>
+</ul>
+</li>
+<li>  Classes
+
+<ul>
+<li>  Overriding Methods</li>
+<li>  <code>extends</code>
+</li>
+<li>  <code>super</code>
+</li>
+<li>  Overriding Methods</li>
+<li>  <code>extends</code>
+</li>
+<li>  <code>super</code>
+</li>
+</ul>
+</li>
+<li>  Swing</li>
+</ul><h1>
+<a name="what-is-java" class="anchor" href="#what-is-java"><span class="octicon octicon-link"></span></a>What is Java</h1>
+
+<p>Java is an object-orientated programming language. It is probably the
+most widely taught and popular programming language.</p>
+
+<p>A few differences compared to python</p>
+
+<ol>
+<li> Every Java program must define a class, and all code must reside in
+this class.</li>
+<li> Statically typed! Everything must have a type.</li>
+<li> Must have the function: <code>public static void main(String[] args)</code>
+</li>
+</ol><h1>
+<a name="hello-world" class="anchor" href="#hello-world"><span class="octicon octicon-link"></span></a>Hello World</h1>
+
+<p>If there is one thing constant in Java programs, then it is the
+structure of a program. It is not the same as Python in which "Hello
+World" can be simply written as:</p>
+
+<div class="highlight highlight-python"><pre><span class="k">print</span> <span class="s">"Hello World"</span>
+</pre></div>
+
+<p>Rather in Java, there is a set structure</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>To run it we have to make sure we do a few things:</p>
+
+<ol>
+<li> The file must be "Hello.java".</li>
+<li> We must first compile it by running <code>$ javac Hello.java</code>
+</li>
+<li> Then we can execute it by running <code>$ java Hello</code>
+</li>
+</ol><p>Remember in section 1 where I said everything in Java code must be in a
+class? Well we just saw that in the previous section.</p>
+
+<p>More on classes later in section 11. In Java, conditionals and boolean
+values work in the same way that you would expect.</p>
+
+<p>So lets implement a simple program which does the following:</p>
+
+<ol>
+<li> Takes a single argument (a persons age)</li>
+<li><p>Determines whether the person is:</p></li>
+</ol><ul>
+<li>  A child</li>
+<li>  A teenageer</li>
+<li>  An adult</li>
+<li>  Pensioner</li>
+</ul><p>(for now let us ignore wrong input)</p>
+
+<p>In Python the program would look something like this:</p>
+
+<div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">"Child"</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">"Teenager"</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">"Adult"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">"Pensioner"</span>
+</pre></div>
+
+<p>In Java it looks quite similar:</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ageGroup</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Child"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Teenager"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Adult"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Pensioner"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Java also has a <code>switch</code> statement which will be ignored for now.</p>
+
+<p>Boolean statements work using <code>!</code>, <code>&amp;&amp;</code>, <code>||</code> instead of <code>not</code>, <code>and</code>,
+<code>or</code>. But otherwise works in exactly the same way.</p>
+
+<h2>
+<a name="looping-around-loops" class="anchor" href="#looping-around-loops"><span class="octicon octicon-link"></span></a>Looping around loops</h2>
+
+<p>Loops aren't as nice as Python. For example in Python, we can use a loop
+to print out the numbers from one to 10.</p>
+
+<div class="highlight highlight-python"><pre><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+<p>In Java it isn't so trivial.</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">loop10</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>So we see that we have to declare the index <code>i</code>, specify the condition
+to break, and increment it.</p>
+
+<h1>
+<a name="data-types" class="anchor" href="#data-types"><span class="octicon octicon-link"></span></a>Data Types</h1>
+
+<p>Remember how I said Java is statically typed? In fact, I have already
+introduced this to you! In the previous section I initialised <code>age</code> by
+typing <code>int age</code>. This is esentially what it means is that the type of a
+variable is known at compile time.</p>
+
+<p>Java only supports the primitive data type which are:</p>
+
+<ul>
+<li>  <code>int</code>
+</li>
+<li>  <code>float</code>
+</li>
+<li>  <code>double</code>
+</li>
+<li>  <code>char</code>
+</li>
+<li>  <code>boolean</code>
+</li>
+</ul><p>You will notice that there is no <code>string</code> type (<code>char</code> and <code>string</code>
+types are different).</p>
+
+<p>But! Java does have a <code>String</code> <em>reference</em> type (<code>string</code> with a capital
+<code>S</code> and yes, it does make a difference). We will see more about it in
+section 6.</p>
+
+<p>There isn't too much to demonstrate here, as all these things will work
+in the same way as Python.</p>
+
+<h1>
+<a name="functions-or-methods" class="anchor" href="#functions-or-methods"><span class="octicon octicon-link"></span></a>Functions (or Methods)</h1>
+
+<p>Functions are important part of any program. Here is an example of a
+simple function which takes a string and prints it. (Note in Java this
+is normally called a "method")</p>
+
+<div class="highlight highlight-java"><pre><span class="c1">// simplePrint java program</span>
+<span class="c1">// simple function example</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">simplePrint</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pprint</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// a void method that just prints a string</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"This is a string: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">String</span> <span class="n">ex</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>        
+        <span class="n">pprint</span><span class="o">(</span><span class="n">ex</span><span class="o">);</span>
+        <span class="n">pprint</span><span class="o">(</span><span class="s">"a"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Since the function doesn't return anything we have to give it a return
+type of "void". The rest of the function is extremely similar to Python.</p>
+
+<h3>
+<a name="overloading" class="anchor" href="#overloading"><span class="octicon octicon-link"></span></a>Overloading</h3>
+
+<p>Methods can be overloaded. You can define two methods with the <strong>same</strong>
+name, but with different types, and it will run as expected.</p>
+
+<p>For example, altering the program above to do something else for <code>int</code>
+types, we can see:</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">overloadPrint</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pprint</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"This is a string: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">pprint</span><span class="o">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"We 'found' an int!"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">String</span> <span class="n">ex</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>        
+        <span class="n">pprint</span><span class="o">(</span><span class="n">ex</span><span class="o">);</span>
+        <span class="n">pprint</span><span class="o">(</span><span class="s">"a"</span><span class="o">);</span>
+        <span class="n">pprint</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<h1>
+<a name="collections" class="anchor" href="#collections"><span class="octicon octicon-link"></span></a>Collections</h1>
+
+<p>Collections are analogous to Python's list, tuples and dicts.
+Collections include:</p>
+
+<ul>
+<li>  Strings</li>
+<li>  Arrays</li>
+<li>  Lists</li>
+<li>  Sets</li>
+<li>  Dictionaries or Maps</li>
+<li>  Iterators</li>
+</ul><p>These are reference types and are actually objects (at least from my
+understanding). Which means they cannot be used in the same way as the
+primitive types.</p>
+
+<h2>
+<a name="strings" class="anchor" href="#strings"><span class="octicon octicon-link"></span></a>Strings</h2>
+
+<p><code>String</code> is <strong>not</strong> the same as Python strings! Lets take a quick look
+at something we would expect to work in Python "translated" into Java.</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">wrongString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Equal!"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not Equal!"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Why does this happen! Well the reason is simply because <code>==</code> tests for
+<em>reference</em> equality while what we want is <em>value</em> equality.</p>
+
+<p>So lets look at the correct way:</p>
+
+<div class="highlight highlight-java"><pre><span class="c1">//rightString.java is the right way to compare strings</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">rightString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">b</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Equal!"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not Equal!"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>We will use the <code>.equals</code> method in order to compare if strings are the
+same.</p>
+
+<p>What about comparing strings if they are "bigger" or "smaller"? Simply
+use <code>compareTo</code> method.</p>
+
+<div class="highlight highlight-java"><pre><span class="c1">// orderString shows a way to compare whether strings are "bigger"</span>
+<span class="c1">// or "smaller"</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">orderString</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"a"</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">"b"</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">compare</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="s">" comes before "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">compare</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="s">" is equal to "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span> 
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="s">" comes after "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<h1>
+<a name="arrays" class="anchor" href="#arrays"><span class="octicon octicon-link"></span></a>Arrays</h1>
+
+<p>You can declare an array of "things" quite easily in Java. There really
+isn't a Python "version" of an array, though you can think of an array
+as a list of fixed length and can only contain one variable type.</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">intArray</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">numArr</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">};</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numArr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>You can also preallocate the array size and assign the values later.</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">intArrayFixed</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">numArr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">numArr</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// indexing starts from 0</span>
+        <span class="o">}</span>        
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numArr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<h2>
+<a name="maps-dictionary" class="anchor" href="#maps-dictionary"><span class="octicon octicon-link"></span></a>Maps (Dictionary)</h2>
+
+<p>Python dictionaries are known as "maps" in Java. There are two different
+maps that are in Java:</p>
+
+<ul>
+<li>  <code>HashMap</code>
+</li>
+<li>  <code>TreeMap</code>
+</li>
+</ul><p>Lets just look at the example below.</p>
+
+<div class="highlight highlight-java"><pre><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Math</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">simpleMap</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+
+        <span class="c1">//associate a random age with each name</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"name"</span><span class="o">+</span><span class="n">i</span><span class="o">;</span>
+            <span class="n">names</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()</span> <span class="o">*</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="o">));</span>
+        <span class="o">}</span>
+
+        <span class="c1">//print them all out, the keys and the values</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">names</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">key</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">names</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>We can see here, there are some things that may look familiar to Python
+programmers.</p>
+
+<p>Firstly, we now have the <code>import</code> statement. This works much in the same
+way as how Python has implemented it.</p>
+
+<h1>
+<a name="classes" class="anchor" href="#classes"><span class="octicon octicon-link"></span></a>Classes</h1>
+
+<p>Classes in Java are unavoidable. Everything has to reside in a class!
+But lets look at a more complex example, defining our own data type
+being "Fractions".</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Fraction</span> <span class="o">{</span>
+    <span class="c1">// initialise!</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">numerator</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">denominator</span><span class="o">;</span>
+
+    <span class="c1">//constructor</span>
+    <span class="kd">public</span> <span class="nf">Fraction</span><span class="o">(</span><span class="n">Integer</span> <span class="n">numerator</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">denominator</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">numerator</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">denominator</span> <span class="o">=</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Fraction</span><span class="o">(</span><span class="n">Integer</span> <span class="n">numerator</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">numerator</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">denominator</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//functions to just get the numerator/denominator</span>
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getNumerator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">numerator</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getDenominator</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// add some simple methods like addition, subtraction</span>
+    <span class="kd">public</span> <span class="n">Fraction</span> <span class="nf">add</span><span class="o">(</span><span class="n">Fraction</span> <span class="n">f2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Integer</span> <span class="n">nNum</span><span class="o">,</span> <span class="n">nDenom</span><span class="o">;</span>
+        <span class="n">nNum</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">()*</span><span class="n">numerator</span> <span class="o">+</span> <span class="n">denominator</span><span class="o">*</span><span class="n">f2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">();</span>
+        <span class="n">nDenom</span> <span class="o">=</span> <span class="n">denominator</span><span class="o">*</span><span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Fraction</span><span class="o">(</span><span class="n">nNum</span><span class="o">,</span> <span class="n">nDenom</span><span class="o">);</span>    
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Fraction</span> <span class="nf">add</span><span class="o">(</span><span class="n">Integer</span> <span class="n">f1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">f1</span><span class="o">));</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">// add a print method</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printFraction</span><span class="o">(</span><span class="n">Fraction</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">numerator</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="na">denominator</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">Fraction</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">Fraction</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
+
+        <span class="n">printFraction</span><span class="o">(</span><span class="n">t1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">t2</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+<p>Before diving in too deep, lets ask the question, why doesn't
+<code>System.out.println(f.numerator);</code> work? The simple reason is that
+<code>numerator</code> is <code>private</code>. In order to allow the <code>println</code> function to
+work we would have to change it to <code>public</code>. This is designed to control
+access to members in a class.</p>
+
+<p>Lets take a moment to think about how inheritance is handled in other
+programming languages. The typical example is using "Animals". In Python
+this is accomplished by first defining a class, and then wrapping a sub
+class underneath.</p>
+
+<p>For example:</p>
+
+<div class="highlight highlight-python"><pre>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">getSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is a </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">dog</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+<p>So then, to inherit, lets say we have a dog and want to add a breed:</p>
+
+<div class="highlight highlight-python"><pre>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">getSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is a </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">muffins</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Muffins"</span><span class="p">,</span> <span class="s">"Cat"</span><span class="p">)</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Bulldog"</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">muffins</span>
+    <span class="k">print</span> <span class="n">dog</span>
+    <span class="k">print</span> <span class="n">dog</span><span class="o">.</span><span class="n">breed</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+<p>And thats it! You now have some form of inheritance.</p>
+
+<p>So in Java what would this look like?</p>
+
+<div class="highlight highlight-java"><pre>
+<span class="c1">// animals</span>
+
+<span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">species</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Animal</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">species</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">species</span> <span class="o">=</span> <span class="n">species</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" is a "</span> <span class="o">+</span> <span class="n">species</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">breed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Dog</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">breed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="s">"Dog"</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">breed</span> <span class="o">=</span> <span class="n">breed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printBreed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">breed</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">printAnimal</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">Animal</span> <span class="n">muffins</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">(</span><span class="s">"Muffins"</span><span class="o">,</span> <span class="s">"Cat"</span><span class="o">);</span>        
+        <span class="n">Dog</span> <span class="n">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="s">"Bob"</span><span class="o">,</span> <span class="s">"Bulldog"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">muffins</span><span class="o">);</span>
+        <span class="n">bob</span><span class="o">.</span><span class="na">printBreed</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>What are the differences that we see?</p>
+
+<ol>
+<li> Method overriding via <code>@Override</code>.</li>
+<li> Use of the word <code>extends</code>.</li>
+<li> Method <code>super</code>.</li>
+</ol><p>So lets go through briefly what each one of these things actually do.</p>
+
+<h3>
+<a name="overriding-methods" class="anchor" href="#overriding-methods"><span class="octicon octicon-link"></span></a>Overriding Methods</h3>
+
+<p>You can override methods in Java by using <code>@Override</code>. In Python this
+was done through <code>__str__</code>.</p>
+
+<h3>
+<a name="extends" class="anchor" href="#extends"><span class="octicon octicon-link"></span></a><code>extends</code>
+</h3>
+
+<p>This is the Java way of inheritance.</p>
+
+<h3>
+<a name="super" class="anchor" href="#super"><span class="octicon octicon-link"></span></a><code>super</code>
+</h3>
+
+<p>This is the Java equivalent of this python line:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+</pre></div>
+
+<p>It is where all the magic happens when it calls its super class to
+"inherit" it.</p>
+
+<p>Lets take a moment to think about how inheritance is handled in other
+programming languages. The typical example is using "Animals". In Python
+this is accomplished by first defining a class, and then wrapping a sub
+class underneath.</p>
+
+<p>For example:</p>
+
+<div class="highlight highlight-python"><pre>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">getSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is a </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">dog</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+<p>So then, to inherit, lets say we have a dog and want to add a breed:</p>
+
+<div class="highlight highlight-python"><pre>
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">getSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is a </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">muffins</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s">"Muffins"</span><span class="p">,</span> <span class="s">"Cat"</span><span class="p">)</span>
+    <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">,</span> <span class="s">"Bulldog"</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">muffins</span>
+    <span class="k">print</span> <span class="n">dog</span>
+    <span class="k">print</span> <span class="n">dog</span><span class="o">.</span><span class="n">breed</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+
+<p>And thats it! You now have some form of inheritance.</p>
+
+<p>So in Java what would this look like?</p>
+
+<div class="highlight highlight-java"><pre>
+<span class="c1">// animals</span>
+
+<span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">species</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Animal</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">species</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">species</span> <span class="o">=</span> <span class="n">species</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">" is a "</span> <span class="o">+</span> <span class="n">species</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">breed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Dog</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">breed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="s">"Dog"</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">breed</span> <span class="o">=</span> <span class="n">breed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printBreed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">breed</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">printAnimal</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="n">Animal</span> <span class="n">muffins</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">(</span><span class="s">"Muffins"</span><span class="o">,</span> <span class="s">"Cat"</span><span class="o">);</span>        
+        <span class="n">Dog</span> <span class="n">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Dog</span><span class="o">(</span><span class="s">"Bob"</span><span class="o">,</span> <span class="s">"Bulldog"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">muffins</span><span class="o">);</span>
+        <span class="n">bob</span><span class="o">.</span><span class="na">printBreed</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>What are the differences that we see?</p>
+
+<ol>
+<li> Method overriding via <code>@Override</code>.</li>
+<li> Use of the word <code>extends</code>.</li>
+<li> Method <code>super</code>.</li>
+</ol><p>So lets go through briefly what each one of these things actually do.</p>
+
+<h3>
+<a name="overriding-methods-1" class="anchor" href="#overriding-methods-1"><span class="octicon octicon-link"></span></a>Overriding Methods</h3>
+
+<p>You can override methods in Java by using <code>@Override</code>. In Python this
+was done through <code>__str__</code>.</p>
+
+<h3>
+<a name="extends-1" class="anchor" href="#extends-1"><span class="octicon octicon-link"></span></a><code>extends</code>
+</h3>
+
+<p>This is the Java way of inheritance.</p>
+
+<h3>
+<a name="super-1" class="anchor" href="#super-1"><span class="octicon octicon-link"></span></a><code>super</code>
+</h3>
+
+<p>This is the Java equivalent of this python line:</p>
+
+<div class="highlight highlight-python"><pre><span class="n">Animal</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">"Dog"</span><span class="p">)</span>
+</pre></div>
+
+<p>It is where all the magic happens when it calls its super class to
+"inherit" it.</p>
+
+<p>Looking at the previous example, we have just introduced the idea of
+<em>polymorphism</em>. There are methods and attributes that are in the
+subclass "Dog" which are not in animal, namely the method <code>printBreed()</code>
+and the field <code>breed</code>. Abstract classes and interfaces are used in Java
+to offer a structure of the class (and subclasses) without really saying
+what it <strong>must</strong> do. So its like a skeleton, or outline to what is to
+happen.</p>
+
+<p>What are the differences between abstract classes and interfaces? In a
+nutshell it could be framed like this:</p>
+
+<blockquote>
+<p>Abstract classes are <em>guidelines</em>, while interfaces are <em>rules</em>.</p>
+</blockquote>
+
+
+
+<h1>
+<a name="swing" class="anchor" href="#swing"><span class="octicon octicon-link"></span></a>Swing</h1>
+
+<p>Swing is a nice easy way to create GUI for Java programs. You can use it
+to accept input. So looking back at our example about getting a person's
+age group:</p>
+
+<div class="highlight highlight-java"><pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ageGroup</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Child"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Teenager"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Adult"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Pensioner"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="n">printAge</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Now we want to add a dialog box to get our input.</p>
+
+<div class="highlight highlight-java"><pre>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ageGroup</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">printAge</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"Child"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"Teenager"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"Adult"</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"Pensioner"</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">getAge</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+
+        <span class="n">getAge</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">"Enter your age"</span><span class="o">);</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">getAge</span><span class="o">);</span>
+
+        <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">"You are a "</span> <span class="o">+</span> <span class="n">printAge</span><span class="o">(</span><span class="n">age</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/chappers/refresh-java/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/chappers/refresh-java/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/chappers/refresh-java"></a> is maintained by <a href="https://github.com/chappers">chappers</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
