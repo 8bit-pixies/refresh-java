@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#what-is-java">What is Java</a></li>
+<li><a href="#hello-world">Hello World</a><ul>
+<li><a href="#looping-around-loops">Looping around loops</a></li>
+</ul></li>
+<li><a href="#data-types">Data Types</a></li>
+<li><a href="#functions-or-methods">Functions (or Methods)</a><ul>
+<li><a href="#overloading">Overloading</a></li>
+</ul></li>
+<li><a href="#collections">Collections</a><ul>
+<li><a href="#strings">Strings</a></li>
+</ul></li>
+<li><a href="#arrays">Arrays</a><ul>
+<li><a href="#maps-dictionary">Maps (Dictionary)</a></li>
+</ul></li>
+<li><a href="#classes">Classes</a><ul>
+<li><a href="#overriding-methods">Overriding Methods</a></li>
+<li><a href="#extends"><code>extends</code></a></li>
+<li><a href="#super"><code>super</code></a></li>
+<li><a href="#overriding-methods-1">Overriding Methods</a></li>
+<li><a href="#extends-1"><code>extends</code></a></li>
+<li><a href="#super-1"><code>super</code></a></li>
+</ul></li>
+<li><a href="#swing">Swing</a></li>
+</ul>
+</div>
+<h1 id="what-is-java">What is Java</h1>
+<p>Java is an object-orientated programming language. It is probably the most widely taught and popular programming language.</p>
+<p>A few differences compared to python</p>
+<ol style="list-style-type: decimal">
+<li>Every Java program must define a class, and all code must reside in this class.</li>
+<li>Statically typed! Everything must have a type.</li>
+<li>Must have the function: <code>public static void main(String[] args)</code></li>
+</ol>
+<h1 id="hello-world">Hello World</h1>
+<p>If there is one thing constant in Java programs, then it is the structure of a program. It is not the same as Python in which &quot;Hello World&quot; can be simply written as:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span> <span class="st">&quot;Hello World&quot;</span></code></pre>
+<p>Rather in Java, there is a set structure</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Hello {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Hello World!&quot;</span>);
+    }
+}</code></pre>
+<p>To run it we have to make sure we do a few things:</p>
+<ol style="list-style-type: decimal">
+<li>The file must be &quot;Hello.java&quot;.</li>
+<li>We must first compile it by running <code>$ javac Hello.java</code></li>
+<li>Then we can execute it by running <code>$ java Hello</code></li>
+</ol>
+<p>Remember in section 1 where I said everything in Java code must be in a class? Well we just saw that in the previous section.</p>
+<p>More on classes later in section 11. In Java, conditionals and boolean values work in the same way that you would expect.</p>
+<p>So lets implement a simple program which does the following:</p>
+<ol style="list-style-type: decimal">
+<li>Takes a single argument (a persons age)</li>
+<li>Determines whether the person is:</li>
+</ol>
+<ul>
+<li>A child</li>
+<li>A teenageer</li>
+<li>An adult</li>
+<li>Pensioner</li>
+</ul>
+<p>(for now let us ignore wrong input)</p>
+<p>In Python the program would look something like this:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+age = <span class="dt">int</span>(sys.argv[<span class="dv">1</span>])
+
+<span class="kw">if</span> age &lt; <span class="dv">13</span>:
+    <span class="dt">print</span> <span class="st">&quot;Child&quot;</span>
+<span class="kw">elif</span> age &lt;= <span class="dv">19</span>:
+    <span class="dt">print</span> <span class="st">&quot;Teenager&quot;</span>
+<span class="kw">elif</span> age &lt; <span class="dv">65</span>:
+    <span class="dt">print</span> <span class="st">&quot;Adult&quot;</span>
+<span class="kw">else</span>:
+    <span class="dt">print</span> <span class="st">&quot;Pensioner&quot;</span></code></pre>
+<p>In Java it looks quite similar:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> ageGroup {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (String[] args) {
+        <span class="dt">int</span> age;
+        age = Integer.<span class="fu">parseInt</span>(args[<span class="dv">0</span>]);
+        <span class="kw">if</span> (age &lt; <span class="dv">13</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Child&quot;</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt;= <span class="dv">19</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Teenager&quot;</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt; <span class="dv">65</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Adult&quot;</span>);
+        }
+        <span class="kw">else</span> {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Pensioner&quot;</span>);
+        }
+    }
+}</code></pre>
+<p>Java also has a <code>switch</code> statement which will be ignored for now.</p>
+<p>Boolean statements work using <code>!</code>, <code>&amp;&amp;</code>, <code>||</code> instead of <code>not</code>, <code>and</code>, <code>or</code>. But otherwise works in exactly the same way.</p>
+<h2 id="looping-around-loops">Looping around loops</h2>
+<p>Loops aren't as nice as Python. For example in Python, we can use a loop to print out the numbers from one to 10.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">for</span> x in <span class="dt">range</span>(<span class="dv">10</span>):
+    <span class="dt">print</span> x<span class="dv">+1</span></code></pre>
+<p>In Java it isn't so trivial.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> loop10 {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (String[] args) {
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">1</span>; i&lt;=<span class="dv">10</span>; i++) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(i);
+        }
+    }
+}</code></pre>
+<p>So we see that we have to declare the index <code>i</code>, specify the condition to break, and increment it.</p>
+<h1 id="data-types">Data Types</h1>
+<p>Remember how I said Java is statically typed? In fact, I have already introduced this to you! In the previous section I initialised <code>age</code> by typing <code>int age</code>. This is esentially what it means is that the type of a variable is known at compile time.</p>
+<p>Java only supports the primitive data type which are:</p>
+<ul>
+<li><code>int</code></li>
+<li><code>float</code></li>
+<li><code>double</code></li>
+<li><code>char</code></li>
+<li><code>boolean</code></li>
+</ul>
+<p>You will notice that there is no <code>string</code> type (<code>char</code> and <code>string</code> types are different).</p>
+<p>But! Java does have a <code>String</code> <em>reference</em> type (<code>string</code> with a capital <code>S</code> and yes, it does make a difference). We will see more about it in section 6.</p>
+<p>There isn't too much to demonstrate here, as all these things will work in the same way as Python.</p>
+<h1 id="functions-or-methods">Functions (or Methods)</h1>
+<p>Functions are important part of any program. Here is an example of a simple function which takes a string and prints it. (Note in Java this is normally called a &quot;method&quot;)</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// simplePrint java program</span>
+<span class="co">// simple function example</span>
+
+<span class="kw">public</span> <span class="kw">class</span> simplePrint {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">pprint</span>(String s) {
+        <span class="co">// a void method that just prints a string</span>
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;This is a string: &quot;</span> + s);
+    }
+    
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {    
+        String ex = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);        
+        <span class="fu">pprint</span>(ex);
+        <span class="fu">pprint</span>(<span class="st">&quot;a&quot;</span>);
+    }
+}</code></pre>
+<p>Since the function doesn't return anything we have to give it a return type of &quot;void&quot;. The rest of the function is extremely similar to Python.</p>
+<h3 id="overloading">Overloading</h3>
+<p>Methods can be overloaded. You can define two methods with the <strong>same</strong> name, but with different types, and it will run as expected.</p>
+<p>For example, altering the program above to do something else for <code>int</code> types, we can see:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> overloadPrint {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">pprint</span>(String s) {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;This is a string: &quot;</span> + s);
+    }
+    
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">pprint</span>(<span class="dt">int</span> s) {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;We &#39;found&#39; an int!&quot;</span>);
+    }
+    
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {    
+        String ex = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);        
+        <span class="fu">pprint</span>(ex);
+        <span class="fu">pprint</span>(<span class="st">&quot;a&quot;</span>);
+        <span class="fu">pprint</span>(<span class="dv">2</span>);
+    }
+}</code></pre>
+<h1 id="collections">Collections</h1>
+<p>Collections are analogous to Python's list, tuples and dicts. Collections include:</p>
+<ul>
+<li>Strings</li>
+<li>Arrays</li>
+<li>Lists</li>
+<li>Sets</li>
+<li>Dictionaries or Maps</li>
+<li>Iterators</li>
+</ul>
+<p>These are reference types and are actually objects (at least from my understanding). Which means they cannot be used in the same way as the primitive types.</p>
+<h2 id="strings">Strings</h2>
+<p><code>String</code> is <strong>not</strong> the same as Python strings! Lets take a quick look at something we would expect to work in Python &quot;translated&quot; into Java.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> wrongString {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        String a = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);
+        String b = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);
+        
+        <span class="kw">if</span> (a == b) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Equal!&quot;</span>);
+        }
+        <span class="kw">else</span> {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Not Equal!&quot;</span>);
+        }
+    }
+}</code></pre>
+<p>Why does this happen! Well the reason is simply because <code>==</code> tests for <em>reference</em> equality while what we want is <em>value</em> equality.</p>
+<p>So lets look at the correct way:</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">//rightString.java is the right way to compare strings</span>
+
+<span class="kw">public</span> <span class="kw">class</span> rightString {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        String a = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);
+        String b = <span class="kw">new</span> String(<span class="st">&quot;test&quot;</span>);
+        
+        <span class="kw">if</span> (a.<span class="fu">equals</span>(b)) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Equal!&quot;</span>);
+        }
+        <span class="kw">else</span> {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Not Equal!&quot;</span>);
+        }
+    }
+}</code></pre>
+<p>We will use the <code>.equals</code> method in order to compare if strings are the same.</p>
+<p>What about comparing strings if they are &quot;bigger&quot; or &quot;smaller&quot;? Simply use <code>compareTo</code> method.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// orderString shows a way to compare whether strings are &quot;bigger&quot;</span>
+<span class="co">// or &quot;smaller&quot;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> orderString {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        String a = <span class="kw">new</span> String(<span class="st">&quot;a&quot;</span>);
+        String b = <span class="kw">new</span> String(<span class="st">&quot;b&quot;</span>);
+        
+        <span class="dt">int</span> compare = a.<span class="fu">compareTo</span>(b);
+        
+        <span class="kw">if</span> (compare &lt; <span class="dv">0</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(a + <span class="st">&quot; comes before &quot;</span> + b);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (compare == <span class="dv">0</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(a + <span class="st">&quot; is equal to &quot;</span> + b);
+        }
+        <span class="kw">else</span> { 
+            System.<span class="fu">out</span>.<span class="fu">println</span>(a + <span class="st">&quot; comes after &quot;</span> + b);
+        }
+    }
+}</code></pre>
+<h1 id="arrays">Arrays</h1>
+<p>You can declare an array of &quot;things&quot; quite easily in Java. There really isn't a Python &quot;version&quot; of an array, though you can think of an array as a list of fixed length and can only contain one variable type.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> intArray {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        <span class="dt">int</span>[] numArr = {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>};
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">4</span>; i++) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(numArr[i]);
+        }
+    }
+}</code></pre>
+<p>You can also preallocate the array size and assign the values later.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> intArrayFixed {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        <span class="dt">int</span>[] numArr = <span class="kw">new</span> <span class="dt">int</span>[<span class="dv">4</span>];
+        
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">4</span>; i++) {
+            numArr[i]=i<span class="dv">+1</span>; <span class="co">// indexing starts from 0</span>
+        }        
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i&lt;<span class="dv">4</span>; i++) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(numArr[i]);
+        }
+    }
+}</code></pre>
+<h2 id="maps-dictionary">Maps (Dictionary)</h2>
+<p>Python dictionaries are known as &quot;maps&quot; in Java. There are two different maps that are in Java:</p>
+<ul>
+<li><code>HashMap</code></li>
+<li><code>TreeMap</code></li>
+</ul>
+<p>Lets just look at the example below.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import java.util.HashMap;</span>
+<span class="kw">import java.util.Map;</span>
+<span class="kw">import java.lang.Math;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> simpleMap {
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {
+        Map&lt;String, Integer&gt; names = <span class="kw">new</span> HashMap&lt;String, Integer&gt;();
+        
+        <span class="co">//associate a random age with each name</span>
+        <span class="kw">for</span> (<span class="dt">int</span> i=<span class="dv">1</span>; i&lt;=<span class="dv">10</span>; i++) {
+            String name = <span class="st">&quot;name&quot;</span>+i;
+            names.<span class="fu">put</span>(name, (<span class="dt">int</span>)(Math.<span class="fu">random</span>() * <span class="dv">10+1</span>));
+        }
+        
+        <span class="co">//print them all out, the keys and the values</span>
+        <span class="kw">for</span> (String key : names.<span class="fu">keySet</span>()) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(key + <span class="st">&quot; &quot;</span> + names.<span class="fu">get</span>(key));
+        }
+    }
+}</code></pre>
+<p>We can see here, there are some things that may look familiar to Python programmers.</p>
+<p>Firstly, we now have the <code>import</code> statement. This works much in the same way as how Python has implemented it.</p>
+<h1 id="classes">Classes</h1>
+<p>Classes in Java are unavoidable. Everything has to reside in a class! But lets look at a more complex example, defining our own data type being &quot;Fractions&quot;.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Fraction {
+    <span class="co">// initialise!</span>
+    <span class="kw">private</span> Integer numerator;
+    <span class="kw">private</span> Integer denominator;
+    
+    <span class="co">//constructor</span>
+    <span class="kw">public</span> <span class="fu">Fraction</span>(Integer numerator, Integer denominator) {
+        <span class="kw">this</span>.<span class="fu">numerator</span> = numerator;
+        <span class="kw">this</span>.<span class="fu">denominator</span> = denominator;
+    }
+    
+    <span class="kw">public</span> <span class="fu">Fraction</span>(Integer numerator) {
+        <span class="kw">this</span>.<span class="fu">numerator</span> = numerator;
+        <span class="kw">this</span>.<span class="fu">denominator</span> = <span class="dv">1</span>;
+    }
+    
+    <span class="co">//functions to just get the numerator/denominator</span>
+    <span class="kw">public</span> Integer <span class="fu">getNumerator</span>() {
+        <span class="kw">return</span> numerator;
+    }
+    
+    <span class="kw">public</span> Integer <span class="fu">getDenominator</span>() {
+        <span class="kw">return</span> denominator;
+    }
+    
+    <span class="co">// add some simple methods like addition, subtraction</span>
+    <span class="kw">public</span> Fraction <span class="fu">add</span>(Fraction f2) {
+        Integer nNum, nDenom;
+        nNum = f2.<span class="fu">getDenominator</span>()*numerator + denominator*f2.<span class="fu">getNumerator</span>();
+        nDenom = denominator*f2.<span class="fu">getDenominator</span>();
+        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Fraction</span>(nNum, nDenom);    
+    }
+    
+    <span class="kw">public</span> Fraction <span class="fu">add</span>(Integer f1) {
+        <span class="kw">return</span> <span class="fu">add</span>(<span class="kw">new</span> <span class="fu">Fraction</span>(f1));
+    }
+    
+    
+    <span class="co">// add a print method</span>
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printFraction</span>(Fraction f) {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(f.<span class="fu">numerator</span> + <span class="st">&quot;/&quot;</span> + f.<span class="fu">denominator</span>);
+    }
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {    
+        Fraction t1 = <span class="kw">new</span> <span class="fu">Fraction</span>(<span class="dv">10</span>);
+        Fraction t2 = <span class="kw">new</span> <span class="fu">Fraction</span>(<span class="dv">1</span>,<span class="dv">2</span>);
+        
+        <span class="fu">printFraction</span>(t1.<span class="fu">add</span>(t2));
+    }
+
+}</code></pre>
+<p>Before diving in too deep, lets ask the question, why doesn't <code>System.out.println(f.numerator);</code> work? The simple reason is that <code>numerator</code> is <code>private</code>. In order to allow the <code>println</code> function to work we would have to change it to <code>public</code>. This is designed to control access to members in a class.</p>
+<p>Lets take a moment to think about how inheritance is handled in other programming languages. The typical example is using &quot;Animals&quot;. In Python this is accomplished by first defining a class, and then wrapping a sub class underneath.</p>
+<p>For example:</p>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="kw">class</span> Animal(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, species):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.species = species
+    <span class="kw">def</span> getName(<span class="ot">self</span>):
+        <span class="ot">self</span>.name
+
+    <span class="kw">def</span> getSpecies(<span class="ot">self</span>):
+        <span class="ot">self</span>.species
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">&quot;</span><span class="ot">%s</span><span class="st"> is a </span><span class="ot">%s</span><span class="st">&quot;</span> % (<span class="ot">self</span>.name, <span class="ot">self</span>.species)
+
+<span class="kw">def</span> main():
+    dog = Animal(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Dog&quot;</span>)
+    <span class="dt">print</span> dog
+
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+    main()
+</code></pre>
+<p>So then, to inherit, lets say we have a dog and want to add a breed:</p>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="kw">class</span> Animal(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, species):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.species = species
+    <span class="kw">def</span> getName(<span class="ot">self</span>):
+        <span class="ot">self</span>.name
+
+    <span class="kw">def</span> getSpecies(<span class="ot">self</span>):
+        <span class="ot">self</span>.species
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">&quot;</span><span class="ot">%s</span><span class="st"> is a </span><span class="ot">%s</span><span class="st">&quot;</span> % (<span class="ot">self</span>.name, <span class="ot">self</span>.species)
+
+<span class="kw">class</span> Dog(Animal):
+
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, breed):
+        Animal.<span class="ot">__init__</span>(<span class="ot">self</span>, name, <span class="st">&quot;Dog&quot;</span>)
+        <span class="ot">self</span>.breed = breed
+
+<span class="kw">def</span> main():
+    muffins = Animal(<span class="st">&quot;Muffins&quot;</span>, <span class="st">&quot;Cat&quot;</span>)
+    dog = Dog(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>)
+    <span class="dt">print</span> muffins
+    <span class="dt">print</span> dog
+    <span class="dt">print</span> dog.breed
+
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+    main()
+</code></pre>
+<p>And thats it! You now have some form of inheritance.</p>
+<p>So in Java what would this look like?</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="co">// animals</span>
+
+<span class="kw">class</span> Animal {
+    <span class="kw">private</span> String name;
+    <span class="kw">private</span> String species;
+    
+    <span class="kw">public</span> <span class="fu">Animal</span>(String name, String species) {
+        <span class="kw">this</span>.<span class="fu">name</span> = name;
+        <span class="kw">this</span>.<span class="fu">species</span> = species;
+    }
+    
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> String <span class="fu">toString</span>() {
+        <span class="kw">return</span> name + <span class="st">&quot; is a &quot;</span> + species;
+    }
+}
+
+<span class="kw">class</span> Dog <span class="kw">extends</span> Animal {
+    <span class="kw">private</span> String breed;
+    
+    <span class="kw">public</span> <span class="fu">Dog</span>(String name, String breed) {
+        <span class="kw">super</span>(name, <span class="st">&quot;Dog&quot;</span>);
+        <span class="kw">this</span>.<span class="fu">breed</span> = breed;
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">printBreed</span>() {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(breed);
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> printAnimal {
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {    
+        Animal muffins = <span class="kw">new</span> <span class="fu">Animal</span>(<span class="st">&quot;Muffins&quot;</span>, <span class="st">&quot;Cat&quot;</span>);        
+        Dog bob = <span class="kw">new</span> <span class="fu">Dog</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>);
+        System.<span class="fu">out</span>.<span class="fu">println</span>(muffins);
+        bob.<span class="fu">printBreed</span>();
+    }
+}</code></pre>
+<p>What are the differences that we see?</p>
+<ol style="list-style-type: decimal">
+<li>Method overriding via <code>@Override</code>.</li>
+<li>Use of the word <code>extends</code>.</li>
+<li>Method <code>super</code>.</li>
+</ol>
+<p>So lets go through briefly what each one of these things actually do.</p>
+<h3 id="overriding-methods">Overriding Methods</h3>
+<p>You can override methods in Java by using <code>@Override</code>. In Python this was done through <code>__str__</code>.</p>
+<h3 id="extends"><code>extends</code></h3>
+<p>This is the Java way of inheritance.</p>
+<h3 id="super"><code>super</code></h3>
+<p>This is the Java equivalent of this python line:</p>
+<pre class="sourceCode python"><code class="sourceCode python">Animal.<span class="ot">__init__</span>(<span class="ot">self</span>, name, <span class="st">&quot;Dog&quot;</span>)</code></pre>
+<p>It is where all the magic happens when it calls its super class to &quot;inherit&quot; it.</p>
+<p>Lets take a moment to think about how inheritance is handled in other programming languages. The typical example is using &quot;Animals&quot;. In Python this is accomplished by first defining a class, and then wrapping a sub class underneath.</p>
+<p>For example:</p>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="kw">class</span> Animal(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, species):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.species = species
+    <span class="kw">def</span> getName(<span class="ot">self</span>):
+        <span class="ot">self</span>.name
+
+    <span class="kw">def</span> getSpecies(<span class="ot">self</span>):
+        <span class="ot">self</span>.species
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">&quot;</span><span class="ot">%s</span><span class="st"> is a </span><span class="ot">%s</span><span class="st">&quot;</span> % (<span class="ot">self</span>.name, <span class="ot">self</span>.species)
+
+<span class="kw">def</span> main():
+    dog = Animal(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Dog&quot;</span>)
+    <span class="dt">print</span> dog
+
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+    main()
+</code></pre>
+<p>So then, to inherit, lets say we have a dog and want to add a breed:</p>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="kw">class</span> Animal(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, species):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.species = species
+    <span class="kw">def</span> getName(<span class="ot">self</span>):
+        <span class="ot">self</span>.name
+
+    <span class="kw">def</span> getSpecies(<span class="ot">self</span>):
+        <span class="ot">self</span>.species
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">&quot;</span><span class="ot">%s</span><span class="st"> is a </span><span class="ot">%s</span><span class="st">&quot;</span> % (<span class="ot">self</span>.name, <span class="ot">self</span>.species)
+
+<span class="kw">class</span> Dog(Animal):
+
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, breed):
+        Animal.<span class="ot">__init__</span>(<span class="ot">self</span>, name, <span class="st">&quot;Dog&quot;</span>)
+        <span class="ot">self</span>.breed = breed
+
+<span class="kw">def</span> main():
+    muffins = Animal(<span class="st">&quot;Muffins&quot;</span>, <span class="st">&quot;Cat&quot;</span>)
+    dog = Dog(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>)
+    <span class="dt">print</span> muffins
+    <span class="dt">print</span> dog
+    <span class="dt">print</span> dog.breed
+
+<span class="kw">if</span> <span class="ot">__name__</span> == <span class="st">&#39;__main__&#39;</span>:
+    main()
+</code></pre>
+<p>And thats it! You now have some form of inheritance.</p>
+<p>So in Java what would this look like?</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="co">// animals</span>
+
+<span class="kw">class</span> Animal {
+    <span class="kw">private</span> String name;
+    <span class="kw">private</span> String species;
+    
+    <span class="kw">public</span> <span class="fu">Animal</span>(String name, String species) {
+        <span class="kw">this</span>.<span class="fu">name</span> = name;
+        <span class="kw">this</span>.<span class="fu">species</span> = species;
+    }
+    
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> String <span class="fu">toString</span>() {
+        <span class="kw">return</span> name + <span class="st">&quot; is a &quot;</span> + species;
+    }
+}
+
+<span class="kw">class</span> Dog <span class="kw">extends</span> Animal {
+    <span class="kw">private</span> String breed;
+    
+    <span class="kw">public</span> <span class="fu">Dog</span>(String name, String breed) {
+        <span class="kw">super</span>(name, <span class="st">&quot;Dog&quot;</span>);
+        <span class="kw">this</span>.<span class="fu">breed</span> = breed;
+    }
+    
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">printBreed</span>() {
+        System.<span class="fu">out</span>.<span class="fu">println</span>(breed);
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> printAnimal {
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) {    
+        Animal muffins = <span class="kw">new</span> <span class="fu">Animal</span>(<span class="st">&quot;Muffins&quot;</span>, <span class="st">&quot;Cat&quot;</span>);        
+        Dog bob = <span class="kw">new</span> <span class="fu">Dog</span>(<span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Bulldog&quot;</span>);
+        System.<span class="fu">out</span>.<span class="fu">println</span>(muffins);
+        bob.<span class="fu">printBreed</span>();
+    }
+}</code></pre>
+<p>What are the differences that we see?</p>
+<ol style="list-style-type: decimal">
+<li>Method overriding via <code>@Override</code>.</li>
+<li>Use of the word <code>extends</code>.</li>
+<li>Method <code>super</code>.</li>
+</ol>
+<p>So lets go through briefly what each one of these things actually do.</p>
+<h3 id="overriding-methods-1">Overriding Methods</h3>
+<p>You can override methods in Java by using <code>@Override</code>. In Python this was done through <code>__str__</code>.</p>
+<h3 id="extends-1"><code>extends</code></h3>
+<p>This is the Java way of inheritance.</p>
+<h3 id="super-1"><code>super</code></h3>
+<p>This is the Java equivalent of this python line:</p>
+<pre class="sourceCode python"><code class="sourceCode python">Animal.<span class="ot">__init__</span>(<span class="ot">self</span>, name, <span class="st">&quot;Dog&quot;</span>)</code></pre>
+<p>It is where all the magic happens when it calls its super class to &quot;inherit&quot; it.</p>
+<p>Looking at the previous example, we have just introduced the idea of <em>polymorphism</em>. There are methods and attributes that are in the subclass &quot;Dog&quot; which are not in animal, namely the method <code>printBreed()</code> and the field <code>breed</code>. Abstract classes and interfaces are used in Java to offer a structure of the class (and subclasses) without really saying what it <strong>must</strong> do. So its like a skeleton, or outline to what is to happen.</p>
+<p>What are the differences between abstract classes and interfaces? In a nutshell it could be framed like this:</p>
+<blockquote>
+<p>Abstract classes are <em>guidelines</em>, while interfaces are <em>rules</em>.</p>
+</blockquote>
+<!--
+needs to be expanded
+-->
+
+
+<h1 id="swing">Swing</h1>
+<p>Swing is a nice easy way to create GUI for Java programs. You can use it to accept input. So looking back at our example about getting a person's age group:</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="kw">public</span> <span class="kw">class</span> ageGroup {
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">printAge</span>(<span class="dt">int</span> age) {
+        <span class="kw">if</span> (age &lt; <span class="dv">13</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Child&quot;</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt;= <span class="dv">19</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Teenager&quot;</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt; <span class="dv">65</span>) {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Adult&quot;</span>);
+        }
+        <span class="kw">else</span> {
+            System.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;Pensioner&quot;</span>);
+        }
+    }
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (String[] args) {
+        <span class="dt">int</span> age;
+        age = Integer.<span class="fu">parseInt</span>(args[<span class="dv">0</span>]);
+        <span class="fu">printAge</span>(age);
+    }
+}</code></pre>
+<p>Now we want to add a dialog box to get our input.</p>
+<pre class="sourceCode java"><code class="sourceCode java">
+<span class="kw">import javax.swing.*;</span>
+
+<span class="kw">public</span> <span class="kw">class</span> ageGroup {
+
+    <span class="kw">public</span> <span class="dt">static</span> String <span class="fu">printAge</span>(<span class="dt">int</span> age) {
+        <span class="kw">if</span> (age &lt; <span class="dv">13</span>) {
+            <span class="kw">return</span> <span class="st">&quot;Child&quot;</span>;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt;= <span class="dv">19</span>) {
+            <span class="kw">return</span> <span class="st">&quot;Teenager&quot;</span>;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (age &lt; <span class="dv">65</span>) {
+            <span class="kw">return</span> <span class="st">&quot;Adult&quot;</span>;
+        }
+        <span class="kw">else</span> {
+            <span class="kw">return</span> <span class="st">&quot;Pensioner&quot;</span>;
+        }
+    }
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span> (String[] args) {
+        String getAge;
+        Integer age;
+        
+        getAge = JOptionPane.<span class="fu">showInputDialog</span>(<span class="st">&quot;Enter your age&quot;</span>);
+        age = <span class="kw">new</span> Integer(getAge);
+        
+        JOptionPane.<span class="fu">showMessageDialog</span>(<span class="kw">null</span>, <span class="st">&quot;You are a &quot;</span> + <span class="fu">printAge</span>(age));
+    }
+}
+</code></pre>
+</body>
+</html>
