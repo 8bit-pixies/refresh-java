@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Handling Errors | Refresh-java</title>
+        <title>More About Data Types | Refresh-java</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../16-graphical-user-interface/chpt.html" />
+        <link rel="next" href="../6-Introduction-to-Program-Design/chpt.html" />
         
         
-        <link rel="prev" href="../14-abstract-classes-and-interfaces/chpt.html" />
+        <link rel="prev" href="../4-conditional-statements-and-boolean-data-type/chpt.html 5-more-about-data-types/chpt.md" />
         
 
-        <meta property="og:title" content="Handling Errors | Refresh-java">
+        <meta property="og:title" content="More About Data Types | Refresh-java">
         <meta property="og:site_name" content="Refresh-java">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -40,7 +40,7 @@
     </head>
     <body>
         
-<div class="book" data-github="chappers/refresh-java" data-level="15">
+<div class="book" data-github="chappers/refresh-java" data-level="5">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="https://github.com/chappers/refresh-java" target="_blank" class="btn pull-left"><i class="fa fa-github-alt"></i></a>
@@ -68,7 +68,7 @@
             <a href="https://github.com/chappers/refresh-java/issues" target="blank">Questions and Issues</a>
         </li>
         <li>
-            <a href="https://github.com/chappers/refresh-java/edit/master/15-handling-errors/chpt.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/chappers/refresh-java/edit/master/5-more-about-data-types/chpt.md" target="blank">Edit and Contribute</a>
         </li>
         <li class="divider"></li>
         <li data-level="0">
@@ -226,7 +226,7 @@
         <div class="page-wrapper">
             <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 43.75%;min-width: 37.5%;"></div>
+        <div class="inner" style="width: 75%;min-width: 68.75%;"></div>
     </div>
     <div class="chapters">
     
@@ -246,15 +246,15 @@
     
         <a href="../15-handling-errors/chpt.html" title="Handling Errors" class="chapter done " data-progress="15" style="left: 43.75%;"></a>
     
-        <a href="../16-graphical-user-interface/chpt.html" title="Graphical User Interface" class="chapter  " data-progress="16" style="left: 50%;"></a>
+        <a href="../16-graphical-user-interface/chpt.html" title="Graphical User Interface" class="chapter done " data-progress="16" style="left: 50%;"></a>
     
-        <a href="../2-a-first-look-at-java-source-code/chpt.html" title="A First look at Java Source Code" class="chapter  new-chapter" data-progress="2" style="left: 56.25%;"></a>
+        <a href="../2-a-first-look-at-java-source-code/chpt.html" title="A First look at Java Source Code" class="chapter done new-chapter" data-progress="2" style="left: 56.25%;"></a>
     
-        <a href="../3-class-definitions/chpt.html" title="Class Definitions" class="chapter  new-chapter" data-progress="3" style="left: 62.5%;"></a>
+        <a href="../3-class-definitions/chpt.html" title="Class Definitions" class="chapter done new-chapter" data-progress="3" style="left: 62.5%;"></a>
     
-        <a href="../4-conditional-statements-and-boolean-data-type/chpt.html 5-more-about-data-types/chpt.md" title="Conditional Statements and Boolean Data Type" class="chapter  new-chapter" data-progress="4" style="left: 68.75%;"></a>
+        <a href="../4-conditional-statements-and-boolean-data-type/chpt.html 5-more-about-data-types/chpt.md" title="Conditional Statements and Boolean Data Type" class="chapter done new-chapter" data-progress="4" style="left: 68.75%;"></a>
     
-        <a href="../5-more-about-data-types/chpt.html" title="More About Data Types" class="chapter  new-chapter" data-progress="5" style="left: 75%;"></a>
+        <a href="../5-more-about-data-types/chpt.html" title="More About Data Types" class="chapter done new-chapter" data-progress="5" style="left: 75%;"></a>
     
         <a href="../6-Introduction-to-Program-Design/chpt.html" title="Introduction to Program Design" class="chapter  new-chapter" data-progress="6" style="left: 81.25%;"></a>
     
@@ -269,13 +269,40 @@
 
             <div class="page-inner">
             
+                <section class="normal" id="section-gitbook_9">
+                
+                    <h1 id="data-types">Data Types</h1>
+<p>Remember how I said Java is statically typed? In fact, I have 
+already introduced this to you! In the previous section I 
+initialised <code>age</code> by typing <code>int age</code>. This is esentially 
+what it means is that the type of a variable is known at 
+compile time. </p>
+<p>Java only supports the primitive data type which are:</p>
+<ul>
+<li><code>int</code></li>
+<li><code>float</code></li>
+<li><code>double</code></li>
+<li><code>char</code></li>
+<li><code>boolean</code></li>
+</ul>
+<p>You will notice that there is no <code>string</code> type (<code>char</code> and 
+<code>string</code> types are different). </p>
+<p>But! Java does have a <code>String</code> <em>reference</em> type (<code>string</code> with a capital
+<code>S</code> and yes, it does make a difference). We will see more about it
+in section 6.</p>
+<p>There isn&#39;t too much to demonstrate here, as all these things will work
+in the same way as Python.</p>
+
+                
+                </section>
+            
             </div>
 
             <div class="page-footer">
     
         
             
-            <a href="../16-graphical-user-interface/chpt.html" class="navigation-link next">Next</a>
+            <a href="../6-Introduction-to-Program-Design/chpt.html" class="navigation-link next">Next</a>
             
         
     
