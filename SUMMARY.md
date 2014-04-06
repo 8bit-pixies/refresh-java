@@ -3,7 +3,7 @@
 *  [Objects and Classes](1-objects-and-classes/chpt.md)  
 *  [A First look at Java Source Code](2-a-first-look-at-java-source-code/chpt.md)   
 *  [Class Definitions](3-class-definitions/chpt.md)  
-*  [Conditional Statements and Boolean Data Type](4-conditional-statements-and-boolean-data-type/chpt.md 5-more-about-data-types/chpt.md)   
+*  [Conditional Statements and Boolean Data Type](4-conditional-statements-and-boolean-data-type/chpt.md)   
 *  [More About Data Types](5-more-about-data-types/chpt.md)
 *  [Introduction to Program Design](6-Introduction-to-Program-Design/chpt.md)  
 *  [Collections and Repetitions](7-collections-and-repetitions/chpt.md)   
